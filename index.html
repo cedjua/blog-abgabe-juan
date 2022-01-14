@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="de-ch">
+  <head>
+    <meta charset="utf-8" />
+    <title>Typografie Projekt - Cédric Juan</title>
+    <meta name="description" content="Typografie Projekt - Cédric Juan" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,800,900&subset=latin,latin-ext" rel="stylesheet" type="text/css"/>
+
+    <style>
+        :root {
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.5;
+            letter-spacing: normal;
+
+            color: #2f3c53;
+
+            --root-line-height:1.5;
+
+            --title-h-one-scaler:3;
+            --title-h-two-scaler:2;
+            --title-h-three-scaler:1.5;
+            --title-h-four-scaler:1.25;
+            --title-h-five-scaler:1;
+
+            --title-h-one-height:1.2;
+            --title-h-two-height:1.25;
+            --title-h-three-height:1.4;
+            --title-h-four-height:1.5;
+            --title-h-five-height:1.6;
+
+            /*
+            Colors:
+            #2f3c53 = darkblue
+            #4c6085 = blue;
+            #39a0ed = light blue;
+
+            blue experiment = #486487;
+
+            #f2dcbb = beige;
+
+            background: #fbfbfb;
+
+            black = #2f3c53;
+            white = #fbfbfb
+
+            gray = #dde1e7
+            light = #e8ebee
+
+
+
+            */
+        }
+
+        html, body {
+            margin: 0;
+            overflow: auto;
+            height: 100%;
+
+            background: #fbfbfb;
+        }
+
+        body,
+        body * {box-sizing: border-box;}
+
+        p {
+            margin-top: 0;
+            margin-bottom: calc(1rem * var(--root-line-height));
+        }
+
+        small {
+            display: block;
+            font-style: italic;
+            color: rgba(47, 60, 83, 0.6);
+            margin-top: calc(0.5rem * var(--root-line-height));
+            margin-bottom: calc(1rem * var(--root-line-height));
+        }
+        small > span {color: rgba(47, 60, 83, 0.8);}
+
+        .footer small {
+            color: rgba(47, 60, 83, 0.36);
+            margin-bottom: 0;
+        }
+        .footer small > span {color: rgba(47, 60, 83, 0.6);}
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            line-height: 1.4;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-size: 4em;
+            font-size: calc(1rem * var(--title-h-one-scaler));
+            line-height: var(--title-h-one-height);
+
+            margin-bottom: calc(0.1rem * var(--title-h-one-scaler));
+        }
+
+        h2 {
+            font-size: 36px;
+            font-size: 3em;
+            font-size: calc(1rem * var(--title-h-two-scaler));
+            line-height: var(--title-h-two-height);
+            opacity: 0.6;
+            font-style:italic;
+        }
+
+        h1 + h2 {margin-top: calc(0.1rem * var(--title-h-two-scaler));}
+
+        h3 {
+            font-size: 24px;
+            font-size: 1.5em;
+            font-size: calc(1rem * var(--title-h-three-scaler));
+            line-height: var(--title-h-three-height);
+            opacity:0.8;
+        }
+
+        h4 {
+            font-size: 20px;
+            font-size: calc(1rem * var(--title-h-four-scaler));
+            line-height: var(--title-h-four-height);
+            opacity: 0.6;
+        }
+
+        .footer h4 {
+            font-size: 20px;
+            font-size: calc(1rem * var(--title-h-four-scaler));
+            line-height: var(--title-h-four-height);
+            opacity: 1;
+            margin: 0;
+            color: rgba(47, 60, 83, 0.6);
+        }
+
+        .footer * + h4 {margin-top: calc(0.75rem * var(--root-line-height));}
+
+        h5 {
+            font-size: 16px;
+            font-size: calc(1rem * var(--title-h-five-scaler));
+            line-height: var(--title-h-five-height);
+            opacity: 0.6;
+        }
+
+        small.writers-info {
+            padding-left: 70px;
+            position: relative;
+            margin-top: calc(1rem * var(--root-line-height));
+        }
+        small.writers-info::before {
+            content: "";
+            display: block;
+            border-radius: 50%;
+            height: 56px;
+            width: 56px;
+            background-image: url(assets/img/MarkTwain.LOC.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            box-shadow: 0 0 20px -4px rgba(47, 60, 83, 0.1);
+        }
+
+        .lead {
+            font-size: calc(1rem * var(--title-h-four-scaler));
+            line-height: var(--title-h-five-height);
+            opacity: 0.6;
+        }
+
+        .sidebar {
+            display: block;
+            height: 100%;
+            width: 100%;
+            max-width: 300px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+
+            border-right: 1px solid #486487;
+            border-right: 1px solid #dde1e7;
+
+            background:#e8ebee;
+        }
+
+        .logo,
+        .logo > img {
+            display: block;
+            width: 100%;
+        }
+
+        .logo {
+            max-width: 232px;
+            margin: auto;
+            /* padding: 24px; */
+            padding: 24px 16px;
+        }
+
+        .menu {
+            display: block;
+            width: 100%;
+            max-width: 232px;
+            margin: auto;
+            padding: 24px 24px;
+        }
+        .menu ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+        .menu ul li {
+            display: block;
+            padding: 12px 8px 12px 8px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            line-height: 1.4;
+            font-size: 24px;
+            font-size: 1.5em;
+            font-size: calc(1rem * var(--title-h-three-scaler));
+            line-height: var(--title-h-three-height);
+            opacity:0.6;
+            transition: opacity 0.15s ease-out;
+            position: relative;
+        }
+        .menu ul li:hover,
+        .menu ul li.active {
+            opacity:0.8;
+            cursor: pointer;
+        }
+
+        .menu ul li::after {
+            content: "";
+            display: block;
+            height: 2px;
+            width: calc(100% - 24px);
+            background: #dde1e7;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: auto;
+            margin: auto;
+
+            transition: all 0.15s ease-out;
+        }
+        .menu ul li.active::after,
+        .menu ul li:hover::after {
+            background: #d4d8dd;
+        }
+
+
+
+
+
+
+        .main {
+            display: flex;
+            margin-left: auto;
+            flex-direction: column;
+
+            position: relative;
+            width: calc(100% - 300px);
+        }
+
+
+        .main > .header {
+            display: flex;
+            display: block;
+            position: relative;
+            width: 100%;
+            height: calc(100vh / var(--title-h-one-scaler));
+
+            background-image: url(assets/img/header.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-color: #dde1e7;
+            /* background-blend-mode: luminosity; */
+
+            overflow: hidden;
+        }
+        .main > .header::after {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right:0;
+            top: auto;
+
+            width: 100%;
+            height: 40px;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+
+            background: #fbfbfb;
+            box-shadow: 0 0 40px -16px #2f3c53;
+        }
+
+        .main > .content {
+            /* display: block; */
+            width: 100%;
+
+            /* max-width: 960px; */
+            /* max-width: 600px; */
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+
+            padding-left: calc(1rem * var(--root-line-height));
+            padding-right: calc(1rem * var(--root-line-height));
+            padding-bottom: calc(1.5rem * var(--root-line-height));
+
+
+            /*EXPERIMENTAL*/
+            display: flex;
+            justify-content: space-evenly;
+            justify-content: space-around;
+        }
+        /* .content > * {margin-top: 0;} */
+
+        .article {
+            width: 100%;
+            max-width: 600px;
+            padding-left: calc(1rem * var(--root-line-height));
+            padding-right: calc(1rem * var(--root-line-height));
+        }
+        .sidestory {
+            width: 100%;
+            max-width: 300px;
+            padding-left: calc(1rem * var(--root-line-height));
+            padding-right: calc(1rem * var(--root-line-height));
+
+            padding-top: calc(1rem * var(--root-line-height));
+        }
+        .sidestory::before {
+            content: "";
+            display: block;
+            position: absolute;
+            height: 96%;
+            width: 2px;
+            background: #dde1e7;
+            margin-left: -4%;
+            top: 0;
+            bottom: 0;
+            margin: ;
+            margin-top: auto;
+            margin-bottom: auto;
+            border-radius: 50%;
+        }
+
+        .sidestory-item {
+            display: block;
+            overflow: hidden;
+            max-height: 200px;
+            height: 100%;
+            border-radius: 8px;
+            margin-top: 0;
+            margin-bottom: calc(1rem * var(--root-line-height));
+            box-shadow: 0 0 20px -4px rgba(47, 60, 83, 0.2);
+            position: relative;
+            border: 1px solid #dde1e7;
+
+            cursor: pointer;
+        }
+        .sidestory-item > img {
+            height: 100%;
+            width: auto;
+            border-bottom-left-radius:8px;
+            border-bottom-right-radius:8px;
+
+            /*EXPERIMENTAL*/
+            margin-top: -8px;
+        }
+        .sidestory-item > .sidestory-item-inner {
+            position: absolute;
+            display: block;
+            height: 64px;
+            /* background: #e8ebee; */
+            background: #f1f2f4;
+            background: #eff1f3;
+            top: auto;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 8px 16px;
+        }
+        .sidestory-item-inner > small {margin: 0;}
+        .sidestory-item-inner > h5 {margin: 0;}
+
+
+        /* .blog-intro {
+            width: 100%;
+            max-width: 960px;
+            height: auto;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 0 20px -4px rgba(47, 60, 83, 0.2);
+        } */
+        .blog-intro {
+            display: block;
+            width: 100%;
+            max-width: 960px;
+            height: 240px;
+            max-height: 300px;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 0 20px -4px rgba(47, 60, 83, 0.2);
+
+            background-image: url(assets/img/blog-intro.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-color: #dde1e7;
+            /* background-blend-mode: luminosity; */
+        }
+
+        table {
+            background: #fbfbfb;
+            display:table;
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #dde1e7;
+            box-shadow: 0 0 20px -4px rgba(47,60,83,0.2);
+            border-spacing: 0;
+            margin-bottom: calc(1rem * var(--root-line-height));
+        }
+        table tbody {
+            border: none;
+        }
+        table tr {
+
+        }
+        table tr:last-of-type {
+
+        }
+
+        table tr th {
+            padding: 6px 12px;
+            text-align: left;
+            background: #eff1f3;
+        }
+        table tr td {
+            padding: 6px 12px;
+            border-top: 1px solid #dde1e7;
+        }
+        table tr:last-child td {
+            padding: 6px 12px;
+            /* border-top: 0px solid #dde1e7; */
+        }
+
+        table td > span {}
+        table td > span.cell-title {display: none;}
+        table td > span.cell-value {}
+
+
+        .article ol:not([class]),
+        .article ul:not([class]),
+        .footer ol:not([class]),
+        .footer ul:not([class]) {padding-left: calc(1rem * var(--root-line-height));margin-bottom: calc(1rem * var(--root-line-height));}
+
+        .article ol:not([class]) > li,
+        .article ul:not([class]) > li,
+        .footer ol:not([class]) > li,
+        .footer ul:not([class]) > li {padding-left: calc(0.4rem * var(--root-line-height));margin-bottom: calc(0.5rem * var(--root-line-height));}
+
+        .article ol:not([class]) > li::marker,
+        .article ul:not([class]) > li::marker,
+        .footer ol:not([class]) > li::marker,
+        .footer ul:not([class]) > li::marker {font-weight: 700;}
+
+        .article a:not([class]) {
+            color: rgba(47, 60, 83, 0.8);
+            transition: color 0.15s ease-out;
+        }
+        .article a:not([class]):hover,
+        .article a:not([class]):visited {
+            color: rgba(47, 60, 83, 0.6);
+        }
+
+
+        .footer {position: relative;overflow: hidden;height: 420px;padding-top:40px;background:#dde1e7;}
+        .footer::before {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: auto;
+            left: 0;
+            right:0;
+            top: 0;
+
+            width: 100%;
+            height: 40px;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+
+            background: #fbfbfb;
+            box-shadow: 0 0 40px -16px #2f3c53;
+        }
+
+        .footer a:not([class]) {
+            color: rgba(47, 60, 83, 0.36);
+            transition: color 0.15s ease-out;
+        }
+        .footer a:not([class]):hover,
+        .footer a:not([class]):visited {
+            color: rgba(47, 60, 83, 0.5);
+        }
+
+        .footer-inner {
+            width: 100%;
+            /* max-width: 600px; */
+            padding-left: calc(2rem * var(--root-line-height));
+            padding-right: calc(2rem * var(--root-line-height));
+
+            padding-top: calc(2rem * var(--root-line-height));
+            padding-bottom: calc(2rem * var(--root-line-height));
+
+            color: rgba(47, 60, 83, 0.36);
+            opacity: 0.6;
+        }
+
+        body.helper .sidebar {background:rgba(122, 15, 15, 0.5); /* RED */}
+        body.helper .main {background:rgba(15, 122, 49, 0.5); /* GREEN */}
+        body.helper .main > .header {background: rgba(101, 15, 122, 0.5) /* PURPLE */;}
+        body.helper .main > .content {background:rgba(15, 16, 122, 0.5); /* BLUE */}
+        body.helper .footer {height: 300px;background:rgba(57, 160, 237, 0.8);}
+
+    @media (max-width:1420px){
+
+    }
+    @media (max-width:1280px){
+        .sidebar {
+            max-width:100px;
+        }
+        .main {
+            width: calc(100% - 100px);
+        }
+
+        .menu {padding: 12px 20px;}
+        .menu ul li {padding:4px 8px 4px 8px;margin-bottom: 0;}
+        .menu ul li:last-child {display: none;}
+        .menu ul li > span {display: none;}
+        .menu ul li::after {background:#2f3c53 !important;margin:0; margin-right: auto;width: calc(100% - 20px);}
+    }
+
+
+    @media (min-width:981px) and (max-width:1120px){
+        .sidestory::before {width: 1px;margin-left: -3%;}
+    }
+    @media (max-width:980px){
+        .main > .content {
+            flex-direction: column;
+        }
+        .sidestory::before {
+            height: 2px;
+            width: 80%;
+            margin-left: auto;
+            top: auto;
+            bottom: auto;
+            margin-right: auto;
+            margin-top: auto;
+            margin-bottom: auto;
+            left: 0;
+            right: 0;
+        }
+    }
+    @media (max-width:767px){
+        .sidebar {
+            display: flex;
+            position: absolute;
+            top: 0;
+            bottom: auto;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 80px;
+            max-width: none;
+            z-index: 1;
+            border-right: none;
+            background: rgba(232, 235, 238, 0.8);
+            background: rgba(47, 60, 83, 0.24);
+            background: rgba(47, 60, 83, 0.75);
+        }
+
+        .logo {
+            max-width: 96px;
+            padding: 0px 16px;
+            margin: auto;
+            margin-left: 0;
+            filter: invert(1);
+        }
+        .menu {
+            max-width: 76px;
+            margin: auto;
+            margin-right: 0;
+            filter: invert(1);
+        }
+        .menu ul li::after {width: calc(100% - 0px);}
+
+        .main {
+            width: calc(100% - 0px);
+        }
+
+    }
+
+
+    @media (max-height:620px){
+        .sidebar {
+            display: flex;
+            position: absolute;
+            top: 0;
+            bottom: auto;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 80px;
+            max-width: none;
+            z-index: 1;
+            border-right: none;
+            background: rgba(232, 235, 238, 0.8);
+            background: rgba(47, 60, 83, 0.24);
+            background: rgba(47, 60, 83, 0.75);
+        }
+
+        .logo {
+            max-width: 96px;
+            padding: 0px 16px;
+            margin: auto;
+            margin-left: 0;
+            filter: invert(1);
+        }
+        .menu {
+            max-width: 76px;
+            margin: auto;
+            margin-right: 0;
+            filter: invert(1);
+        }
+        .menu ul li {padding:4px 8px 4px 8px;margin-bottom: 0;}
+        .menu ul li:last-child {display: none;}
+        .menu ul li > span {display: none;}
+        .menu ul li::after {background:#2f3c53 !important;margin:0; margin-right: auto;width: calc(100% - 0px);}
+        .menu ul li::after {}
+
+        .main {
+            width: calc(100% - 0px);
+        }
+
+    }
+    @media (max-width:620px){
+
+        :root {
+            --root-line-height:1.5;
+
+            --title-h-one-scaler:2;
+            --title-h-two-scaler:1.6;
+            --title-h-three-scaler:1.4;
+            --title-h-four-scaler:1.2;
+            --title-h-five-scaler:1;
+
+            --title-h-one-height:1.2;
+            --title-h-two-height:1.25;
+            --title-h-three-height:1.4;
+            --title-h-four-height:1.5;
+            --title-h-five-height:1.6;
+        }
+
+        h1 {
+            margin-bottom: calc(0.4rem * var(--title-h-one-scaler));
+            margin-top: calc(0.1rem * var(--title-h-one-scaler));
+        }
+
+        .article {
+            padding-left: calc(0.6rem * var(--root-line-height));
+            padding-right: calc(0.6rem * var(--root-line-height));
+        }
+
+        .sidestory {
+            padding-left: calc(0.6rem * var(--root-line-height));
+            padding-right: calc(0.6rem * var(--root-line-height));
+        }
+
+        .footer-inner {
+            padding-left: calc(1.5rem * var(--root-line-height));
+            padding-right: calc(1.5rem * var(--root-line-height));
+        }
+
+        table th  {display: none;}
+        table td  {display: flex;}
+
+        table td > span {}
+
+        /* table tr:nth-of-type(2) td {border-top: none;} */
+        table tr + tr td:first-of-type {margin-top: 24px;}
+        table tr:nth-of-type(2) td:first-of-type  {margin-top: 0px;border-top: none;}
+
+        table td:first-of-type {background: #eff1f3;border-top-left-radius: 8px;border-top-right-radius: 8px;}
+        table td:first-of-type > span.cell-title {display: none;color: red;font-weight: 700;}
+        table td:first-of-type > span.cell-value {display: block;font-weight: 700;}
+        table td > span.cell-title {display: inline-block;width: 100%;opacity: 0.75;}
+        table td > span.cell-value {}
+    }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+            <div class="logo"><img src="assets/img/logo.png" /></div>
+            <div class="menu">
+                <ul>
+                    <li><span>Home</span></li>
+                    <li class="active"><span>Blog</span></li>
+                    <li><span>Über uns</span></li>
+                    <li><span>Kontakt</span></li>
+                </ul>
+            </div>
+    </div>
+    <div class="main">
+        <div class="header"></div>
+        <div class="content">
+            <div class="article">
+                <h1 id="">Allgemeine Antwort an Schriftsteller</h1>
+                <h2 id="">&hellip;oder solche, die es werden wollen</h2>
+                <div class="blog-intro"></div>
+                <small class="writers-info">Autor: <span>Mark Twain</span><br />Verfasst am: <span>14.01.2022</span><br />Zuletzt geändert von: <span>Cédric Juan</span></small>
+                <p class="lead">Wenn jemand die Redaktion einer Zeitung oder eines Journals übernimmt, so schicken ihm allerhand Leute, die sich der Schriftstellerei befleissigen, sofort ihre Manuskripte zu und bitten ihn um sein Urteil über ihre Erzeugnisse.</p>
+                <h3>An Herrn Mark Twain, Wohlgeboren.</h3>
+                <p>Geehrter Herr! Ich bin ein junger Mann, der eben die Schule verlassen hat und im Begriff steht, ins Leben einzutreten. Wohin ich aber auch sehe, finde ich keine Beschäftigung, die mir so recht gefällt. Ist das Schriftstellerleben leicht und einträglich, oder ist es wirklich ein so saures Brot, wie man immer sagt?</p>
+                <p>Es muss doch bequemer sein als viele, ja als die meisten Berufsarten. Mich drängt es unwiderstehlich, mich darauf zu werfen. Mag es biegen oder brechen, ich will mein Glück damit versuchen, will schwimmen und untersinken, triumphieren oder erliegen.</p>
+                <p>Wie hat man es denn aber anzufangen, wenn es einem in der Literatur glücken soll? – Fürchten sie sich ja nicht, mir die Sache genauso darzustellen, wie sie ist. Im schlimmsten Fall würde mein Vorhaben eben misslingen, und davor ist man doch niemals geschützt.</p>
+                <p>Ich habe an die juristische Laufbahn gedacht, auch an fünf oder sechs andere Berufsarten, aber überall fand ich die gleichen Übelstände (alles überfüllt), vollgepfropft, immer mehr Angebote als Nachfrage, der Erfolg ein Ding der Unmöglichkeit, weil es viel zu viele Hände gibt und zu wenig Arbeit. Aber ich muss etwas ergreifen, und da suche ich denn mein Heil bei der Literatur. Eine innere Stimme sagt mir, dass dies das rechte Feld für meine Begabung ist, wenn ich überhaupt Talent dazu habe.</p>
+                <p>Ich lege einige Proben bei.<br/>Bitte, lesen Sie dieselben und teilen Sie mir Ihre aufrichtige, unparteiische Meinung mit.</p>
+                <p>Und dann noch eins – ich bedaure, Ihnen beschwerlich fallen zu müssen, aber erinnern Sie sich daran, dass Sie selbst einmal ein junger Anfänger gewesen sind, und verschaffen Sie mir Arbeit für eine Zeitung.<br/>Sie stehen mit vielen Redaktionen in Verbindung, und ich bin gänzlich unbekannt. Auch bitte ich Sie, mir möglichst günstige Bedingungen auszuwirken. Ich weiss wohl, dass ich zuerst nicht auf hohe Bezahlung rechnen kann, aber wieviel meinen Sie, dass man für Artikel wie die beifolgenden ungefähr fordern könnte?</p>
+                <p>Ich habe noch eine Menge dergleichen in meiner Mappe, wenn Sie diese unterbringen und es mich wissen lassen, kann ich Ihnen andere schicken, die ganz ebenso gut, vielleicht sogar besser sind.</p>
+                <p>Einer baldigen Antwort usw.</p>
+                <h3>Ihr ergebener usw.</h3>
+                <table>
+                    <tr>
+                        <th>Autor</th>
+                        <th>Herkunft</th>
+                        <th>Bücher</th>
+                        <th>Geburtsjahr</th>
+                        <th>Todesdatum</th>
+                    </tr>
+                    <tr>
+                        <td><span class="cell-title">Autor</span><span class="cell-value">Mark Twain</span></td>
+                        <td><span class="cell-title">Herkunft</span><span class="cell-value">U.S.A.</span></td>
+                        <td><span class="cell-title">Bücher</span><span class="cell-value">28+</span></td>
+                        <td><span class="cell-title">Geburtsjahr</span><span class="cell-value">1835</span></td>
+                        <td><span class="cell-title">Todesdatum</span><span class="cell-value">21.04.1910</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="cell-title">Autor</span><span class="cell-value">Stephen King</span></td>
+                        <td><span class="cell-title">Herkunft</span><span class="cell-value">U.S.A.</span></td>
+                        <td><span class="cell-title">Bücher</span><span class="cell-value">63+</span></td>
+                        <td><span class="cell-title">Geburtsjahr</span><span class="cell-value">1947</span></td>
+                        <td><span class="cell-title">Todesdatum</span><span class="cell-value">–</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="cell-title">Autor</span><span class="cell-value">J. K. Rowling</span></td>
+                        <td><span class="cell-title">Herkunft</span><span class="cell-value">England</span></td>
+                        <td><span class="cell-title">Bücher</span><span class="cell-value">19+</span></td>
+                        <td><span class="cell-title">Geburtsjahr</span><span class="cell-value">1965</span></td>
+                        <td><span class="cell-title">Todesdatum</span><span class="cell-value">–</span></td>
+                    </tr>
+                </table>
+                <p>Ich will Ihnen offen und ehrlich antworten. Ob , was ich zu sagen habe, von grossem Werte für sie sein wird, oder ob sie finden werden, dass es sich der Mühe lohnt, meine Ratschläge zu befolgen, sind Dinge, deren Entscheidung ich mit Freuden Ihrem eignen Urteil überlasse.</p>
+                <p>Zunächst enthielt Ihr Brief mehrere Fragen, die jeder nur nach eigener Lebenserfahrung endgültig beantworten kann. Diese Fragen übergehe ich einfach und erwidere Ihnen folgendes:</p>
+                <ol>
+                    <li>Dass die Literatur, das geistliche Amt, die Medizin, die Jurisprudenz und alle anderen Berufsarten ins Stocken geraten sind und nicht die erwünschten Fortschritte machen, daran ist nicht Mangel an Arbeit schuld, sondern Mangel an Arbeitskräften.</li>
+                    <li>Ich werde mich wohl hüten, über den literarischen Wert Ihrer Erzeugnisse eine Meinung abzugeben. Das Publikum ist der einzige Kritiker, dessen Urteil überhaupt etwas gilt.</li>
+                    <li>Ich schrecke vor der Aufgabe zurück, Ihnen schriftstellerische Arbeiten zu verschaffen, für welche Sie Honorar beanspruchen. Sobald Ihre Leistungen selbst den Beweis geliefert haben, dass sie wirklich wertvoll sind, werden Sie nicht mehr herumzugehen brauchen, um nach literarischer Beschäftigung zu suchen.</li>
+                </ol>
+                <p>Wenn der Verfasser jenes Briefes für die Zeitungen, die in der Nachbarschaft seines Wohnortes erscheinen, unentgeltlich schreiben will, so ist hundert gegen eins zu wetten, dass er so viele Aufträge erhält, als er unter dieser Bedingung nur irgend übernehmen kann. – Stellt sich dann heraus, dass seine Schreibereien wirklich etwas wert sind, so finden sich sicherlich eine Menge Leute, die ihm Geld dafür anbieten.</p>
+                <p>Zum Schluss will ich ihm als ernste und wohlgemeinte Ermutigung noch einmal die Tatsache zu Gemüte führen, dass annehmbare und lesenswerte Schriftsteller höchst selten sind. Sowohl Buchhändler als Herausgeber von Zeitungen suchen unablässig nach ihnen und zwar mit solchem Eifer, dass sie sich bei dem Geschäft keinen Augenblick Rast oder Ruhe gönnen.</p>
+
+                <small>Quelle: <a href="https://eden.one/allgemeine-antwort-an-schriftsteller-oder-solche-die-es-werden-wollen">eden.one</a></small>
+            </div>
+            <div class="sidestory">
+                <h4 id="">Weitere Beiträge</h4>
+                <div class="sidestory-item">
+                    <img src="assets/img/teaser-1.jpg" />
+                    <div class="sidestory-item-inner">
+                        <small>10.11.2021</small>
+                        <h5>Redaktion einer Zeitung</h5>
+                    </div>
+                </div>
+                <div class="sidestory-item">
+                    <img src="assets/img/teaser-2.jpg" />
+                    <div class="sidestory-item-inner">
+                        <small>07.10.2021</small>
+                        <h5>An Herrn Mark Twain</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-inner">
+                <h4>Bildquellen</h4>
+                <small><ul>
+                    <li><a href="https://unsplash.com/photos/y02jEX_B0O0">unsplash.com/photos/y02jEX_B0O0</a></li>
+                    <li><a href="https://unsplash.com/photos/59lC6TgZAbQ">unsplash.com/photos/59lC6TgZAbQ</a></li>
+                    <li><a href="https://unsplash.com/photos/6bibCUj3lfA">unsplash.com/photos/6bibCUj3lfA</a></li>
+                    <li><a href="https://unsplash.com/photos/-m88z7ily-w">unsplash.com/photos/-m88z7ily-w</a></li>
+                    <li><a href="https://upload.wikimedia.org/wikipedia/commons/3/31/MarkTwain.LOC.jpg">upload.wikimedia.org/wikipedia/commons/3/31/MarkTwain.LOC.jpg</a></li>
+                </ul></small>
+                <h4>Impressum</h4>
+                <small>Programmierung &amp; Design: <span>Cédric Juan</span></small>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="footer"></div> -->
+  </body>
+</html>
